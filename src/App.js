@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import axios from 'axios';
-
+import Map from './map';
 import './App.css';
 
 class App extends Component {
@@ -63,6 +63,8 @@ sendrequest=()=>{
         <button onClick={this.sendrequest}>Search</button>
         </p>
         <ul>{city}</ul>
+        <Map/>
+
       </div>
     );
   }
