@@ -3,6 +3,7 @@ import logo from '../logo.svg';
 import axios from 'axios';
 //import Map from './map';
 import '../App.css';
+import MapWithAMarker from './MarkerMap'
 
 import {
   Link
@@ -54,7 +55,17 @@ sendrequest=()=>{
 
       const city = this.state.events.map((e,i)=>{
           const str = e.venue.displayName.replace(/\s/g, '');
-      return (<div key={i}><Link  to={`/${str}/details`}>{e.venue.displayName}</Link></div>)
+      return (
+        <div key={i}>
+            
+            <Link  
+            to={{
+                pathname:`/${str}/details`,
+                state:{data:e}
+            }}
+            >{e.venue.displayName}
+            </Link>
+        </div>)
      })
       const startdate = this.state.events.map((e)=>{
       console.log(e.start.date)
@@ -77,7 +88,11 @@ sendrequest=()=>{
       </div>
       {city}
 
+      <div style={{width:'100%'}}>
       
+      
+
+      </div>
       </div>
     );
   }
