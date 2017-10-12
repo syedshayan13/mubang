@@ -60,7 +60,7 @@ sendrequest=()=>{
         </div>
         <p className="App-intro">
         <input type="text" name="artistname" onChange={this.HandleChange}/>
-        <button onClick={this.sendrequest}>Search</button>
+        <button onClick={this.sendrequest}>Search box</button>
         </p>
         <ul>{city}</ul>
         <Map/>
