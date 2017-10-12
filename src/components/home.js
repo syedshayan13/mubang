@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom'
 
 
+
 class App extends Component {
 
   constructor(props) {
@@ -50,8 +51,10 @@ sendrequest=()=>{
   
 
   render() {
+
       const city = this.state.events.map((e,i)=>{
-      return (<div key={i}><button >{e.location.city + " --- " + e.start.date + " ---" + e.venue.displayName}</button></div>)
+          const str = e.venue.displayName.replace(/\s/g, '');
+      return (<div key={i}><Link  to={`/${str}/details`}>{e.venue.displayName}</Link></div>)
      })
       const startdate = this.state.events.map((e)=>{
       console.log(e.start.date)
@@ -68,7 +71,7 @@ sendrequest=()=>{
         <p className="App-intro">
         <input type="text" name="artistname" onChange={this.HandleChange}/>
         <button onClick={this.sendrequest}>Search box</button>
-        <li><Link to='/about'>about</Link></li>
+        
         </p>
       
       </div>
